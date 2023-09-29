@@ -4,22 +4,44 @@
 @section('title', 'Laravel comics - Home')
 
 @section('content')
-    <h1>Comics</h1>
-    <div class="container">
-        <div class="row row-cols-4 gy-4">
-            @foreach ($comicsList as $comic)
-                <div class="col">
-                    <img src="{{ $comic->thumb }}" alt="{{ $comic->title }}" style="height: 150px">
-                    <ul>
-                        <li>{{ $comic->title }}</li>
-                        <li>{{ $comic->description }}</li>
-                        <li>{{ $comic->price }}</li>
-                        <li>{{ $comic->series }}</li>
-                        <li>{{ $comic->sale_date }}</li>
-                        <li>{{ $comic->type }}</li>
-                        <li>{{ $comic->artists }}</li>
-                        <li>{{ $comic->writers }}</li>
-                    </ul>
+    {{-- Sezione current series --}}
+    <div class="comics-main">
+        <img src="{{ asset('img/jumbotron.jpg') }}" alt="bg image" class="my-jumbotron">
+        <div class="container pb-3">
+            <div class="section-comics-title">
+                <h3 class="text-uppercase p-0 m-0 fs-5">
+                    current series
+                </h3>
+            </div>
+            <div class="row">
+                @foreach ($comicsList as $comic)
+                    <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                        <div class="comics-list pt-3 d-flex justify-content-center">
+                            <a href="{{ $comic->id }}">
+                                <img src="{{ $comic->thumb }}" alt="{{ $comic->series }}">
+                                <p class="text-white text-uppercase m-0 p-0 pt-2"> {{ $comic->series }} </p>
+                            </a>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+            <div class="d-flex align-items-center justify-content-center pt-2">
+                <button type="button" class="btn my-btn-comics text-uppercase pe-5 ps-5">
+                    load more
+                </button>
+            </div>
+        </div>
+    </div>
+
+    {{-- Sezione banner --}}
+    <div class="banner pt-4 pb-4 overflow-hidden">
+        <div class="row justify-content-center">
+            @foreach ($bannerLinks as $link)
+                <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+                    <div class="d-flex align-items-center justify-content-center">
+                        <img src="{{ asset($link['srcImg']) }}" alt="{{ $link['name'] }}" class="pe-2">
+                        <p class="text-white text-uppercase text-nowrap m-0 p-0"> {{ $link['name'] }} </p>
+                    </div>
                 </div>
             @endforeach
         </div>
