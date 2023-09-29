@@ -25,7 +25,7 @@
             <ul class="my-navbar-link d-flex flex-wrap align-items-center justify-content-center">
                 @foreach ($navLinks as $link)
                     <li class="list-group-item pt-1 pt-md-0">
-                        <a href="{{ $link['name'] }}" class="link-underline link-underline-opacity-0">
+                        <a href="/comics" class="link-underline link-underline-opacity-0">
                             {{ $link['name'] }}
                         </a>
                     </li>

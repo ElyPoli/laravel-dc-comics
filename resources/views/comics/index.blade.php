@@ -17,7 +17,7 @@
                 @foreach ($comicsList as $comic)
                     <div class="col-6 col-sm-4 col-md-3 col-lg-2">
                         <div class="comics-list pt-3 d-flex justify-content-center">
-                            <a href="{{ $comic->id }}">
+                            <a href="{{ route("comics.show", ["comic" => $comic->id]) }}">
                                 <img src="{{ $comic->thumb }}" alt="{{ $comic->series }}">
                                 <p class="text-white text-uppercase m-0 p-0 pt-2"> {{ $comic->series }} </p>
                             </a>
