@@ -5,6 +5,67 @@ $secondary-color: #303030;
 $primary-color: #0282f9;
 
 /*
+HEADER
+*/
+.my-navbar-logo {
+    img {
+        max-width: 5rem;
+    }
+}
+
+.my-navbar-link {
+    display: flex;
+    flex-direction: row;
+    padding-left: 0;
+    margin-bottom: 0;
+
+    .list-group-item {
+        padding: 0 1rem;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        font-weight: bold;
+
+        a {
+            color: $secondary-color;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: $primary-color;
+        }
+    }
+}
+
+.nav-search {
+    input {
+        border: none;
+        border-bottom: 2px solid $primary-color;
+        border-radius: 0;
+        background-color: transparent;
+        width: 100px;
+        padding: 0.5rem;
+        margin-right: 10px;
+        text-align: right;
+        font-weight: bold;
+    }
+
+    button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+}
+
+.nav-upperline {
+    background-color: $primary-color;
+
+    p {
+        font-size: 0.8rem;
+        cursor: pointer;
+    }
+}
+
+/*
 FOOTER
 */
 .top-footer {
