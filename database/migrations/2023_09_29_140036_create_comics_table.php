@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('comics', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 50);
+            $table->string('title', 100);
             $table->text('description')->nullable();
-            $table->string('thumb');
+            $table->string('thumb', 600);
             $table->float('price', 8, 2);
-            $table->string('series', 30)->nullable();
+            $table->string('series', 100)->nullable();
             $table->date('sale_date');
-            $table->string('type', 50)->default("Comic Book");
+            $table->string('type', 100)->default("Comic Book");
             $table->json('artists');
             $table->json('writers');
             $table->timestamps();
