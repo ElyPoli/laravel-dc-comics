@@ -1,2 +1,86 @@
 @use "bootstrap";
 @use "@fortawesome/fontawesome-free/css/all.min.css";
+
+$secondary-color: #303030;
+$primary-color: #0282f9;
+
+/*
+FOOTER
+*/
+.top-footer {
+    background-image: url("/public/img/footer-bg.jpg");
+    height: 380px;
+    overflow: hidden;
+
+    p {
+        padding: 0 0 0.2rem 0;
+        margin: 0;
+        font-size: 0.8rem;
+        color: #999797;
+        cursor: pointer;
+    }
+
+    p:hover {
+        text-decoration: underline;
+    }
+}
+
+.footer-logo {
+    margin-top: -93px;
+}
+
+.bottom-footer {
+    background-color: $secondary-color;
+}
+
+.my-btn-footer {
+    color: #ffffff;
+    border: 2px solid $primary-color;
+    border-radius: 0%;
+    transition: background-color 0.2s;
+}
+
+.my-btn-footer:hover {
+    background-color: $primary-color;
+}
+
+.my-social {
+    p {
+        color: $primary-color;
+        font-weight: bold;
+        font-size: 1.2rem;
+        padding: 0 1rem;
+    }
+
+    img {
+        padding: 0 0.5rem;
+        cursor: pointer;
+        transition: transform 0.2s;
+    }
+
+    img:hover {
+        transform: scale(0.93);
+    }
+}
+
+.my-footer-copyright {
+    margin-top: -120px;
+
+    p {
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    span {
+        color: $primary-color;
+        cursor: pointer;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
