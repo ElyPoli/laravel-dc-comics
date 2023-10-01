@@ -14,5 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::redirect('/', '/comics');
 Route::get("/comics", [ComicController::class, "index"])->name("comics.index"); // READ
 Route::get("/comics/{comic}", [ComicController::class, "show"])->name("comics.show"); // SHOW
