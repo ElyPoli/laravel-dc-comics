@@ -199,6 +199,28 @@ class ComicController extends Controller
                     ]
                 ]
             ],
+            "bannerLinks" => [
+                [
+                    "name" => "digital comics",
+                    "srcImg" => "img/buy-comics-digital-comics.png",
+                ],
+                [
+                    "name" => "dc merchandise",
+                    "srcImg" => "img/buy-comics-merchandise.png",
+                ],
+                [
+                    "name" => "subscriptions",
+                    "srcImg" => "img/buy-comics-subscriptions.png",
+                ],
+                [
+                    "name" => "comic shop locator",
+                    "srcImg" => "img/buy-comics-shop-locator.png",
+                ],
+                [
+                    "name" => "dc power visa",
+                    "srcImg" => "img/buy-dc-power-visa.svg",
+                ]
+            ],
             "comic" => Comic::find($id),
         ];
 
