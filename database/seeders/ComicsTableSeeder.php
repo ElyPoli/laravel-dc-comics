@@ -235,7 +235,7 @@ class ComicsTableSeeder extends Seeder
             $comicModel->title = $singleComic["title"];
             $comicModel->description = $singleComic["description"];
             $comicModel->thumb = $singleComic["thumb"];            
-            $comicModel->price = intval(str_replace("$", "", $singleComic["price"])); // Estraggo solo la parte numerica            
+            $comicModel->price = floatval(str_replace("$", "", $singleComic["price"])); // Estraggo solo la parte numerica            
             $comicModel->series = $singleComic["series"];
             $comicModel->sale_date = $singleComic["sale_date"];
             $comicModel->type = $singleComic["type"];
