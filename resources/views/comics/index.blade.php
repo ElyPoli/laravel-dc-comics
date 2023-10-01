@@ -1,7 +1,7 @@
 @extends('layouts.public')
 
 {{-- Indico il titolo della pagina --}}
-@section('title', 'Laravel comics - Home')
+@section('title', 'Laravel comics - Comics')
 
 @section('content')
     {{-- Sezione current series --}}
