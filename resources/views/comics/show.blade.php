@@ -63,11 +63,7 @@
                             <p>Art by:</p>
                         </div>
                         <div class="col-6">
-                            <span class="my-text-primary">
-                                @foreach (json_decode($comic->artists) as $artist)
-                                    {{ $artist }},
-                                @endforeach
-                            </span>
+                            <span class="my-text-primary"> {{ $comic->artists }} </span>
                         </div>
                     </div>
                     <div class="row element-padding-box">
@@ -75,11 +71,7 @@
                             <p>Written by:</p>
                         </div>
                         <div class="col-6">
-                            <span class="my-text-primary">
-                                @foreach (json_decode($comic->writers) as $writer)
-                                    {{ $writer }},
-                                @endforeach
-                            </span>
+                            <span class="my-text-primary"> {{ $comic->writers }} </span>
                         </div>
                     </div>
                 </div>

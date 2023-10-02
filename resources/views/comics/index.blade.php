@@ -26,9 +26,9 @@
                 @endforeach
             </div>
             <div class="d-flex align-items-center justify-content-center pt-2">
-                <button type="button" class="btn my-btn-comics text-uppercase pe-5 ps-5">
-                    load more
-                </button>
+                <a href="{{ route('comics.create') }}" class="btn my-btn-comics text-uppercase pe-5 ps-5">
+                    Add new comic
+                </a>
             </div>
         </div>
     </div>
