@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('series', 100)->nullable();
             $table->date('sale_date');
             $table->string('type', 100)->default("Comic Book");
-            $table->json('artists');
-            $table->json('writers');
+            $table->text('artists');
+            $table->text('writers');
             $table->timestamps();
         });
     }
