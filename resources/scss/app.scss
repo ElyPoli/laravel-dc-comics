@@ -352,5 +352,24 @@ SINGLE COMIC
         padding-top: 10px;
         padding-bottom: 10px;
     }
+}
 
+/*
+FORM PAGE
+*/
+.form-jumbotron-bg {
+    height: auto;
+    margin-bottom: 0;
+}
+
+.form-add-comic {
+    border-radius: 10px;
+    padding: 1rem;
+    background-color: rgba(2, 130, 249, 0.8);
+    color: #ffffff;
+    font-weight: bold;
+
+    .btn-add-comic {
+        background-color: $secondary-color;
+    }
 }
