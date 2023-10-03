@@ -21,6 +21,10 @@
                                 <img src="{{ $comic->thumb }}" alt="{{ $comic->series }}">
                                 <p class="text-white text-uppercase m-0 p-0 pt-2"> {{ $comic->series }} </p>
                             </a>
+                            {{-- Pulsante modifica --}}
+                            <a href="{{ route("comics.edit", ["comic" => $comic->id]) }}">
+                                Edit
+                            </a>
                         </div>
                     </div>
                 @endforeach

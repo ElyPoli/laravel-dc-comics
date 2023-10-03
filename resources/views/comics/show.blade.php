@@ -19,6 +19,10 @@
 
     {{-- Sezione descrizione comic --}}
     <div class="container">
+        {{-- Pulsante modifica --}}
+        <a href="{{ route("comics.edit", $comic->id) }}">
+            Edit
+        </a>
         <div class="row gy-3 justify-content-center">
             <div class="col-12 col-sm-8">
                 <h1 class="text-uppercase fw-bold fs-3 single-comic-title">{{ $comic->title }}</h1>

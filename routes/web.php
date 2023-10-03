@@ -22,4 +22,8 @@ Route::post("/comics", [ComicController::class, "store"])->name("comics.store");
 
 // READ
 Route::get("/comics", [ComicController::class, "index"])->name("comics.index"); // recupero e poi mostro tutti i dati dalla relativa tabella del db
-Route::get("/comics/{comic}", [ComicController::class, "show"])->name("comics.show"); // mostro i dettagli di un elemento specifico della relativa tabella del db 
+Route::get("/comics/{comic}", [ComicController::class, "show"])->name("comics.show"); // mostro i dettagli di un elemento specifico della relativa tabella del db
+
+// UPDATE
+Route::get("/comics/{comic}/edit", [ComicController::class, "edit"])->name("comics.edit"); // ritorna una pagina con form per modificare l'elemento
+Route::put("/comics/{comic}", [ComicController::class, "update"])->name("comics.update"); // leggo i dati e modifico l'elemento nella tabella del db

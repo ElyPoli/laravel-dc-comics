@@ -344,4 +344,119 @@ class ComicController extends Controller
 
         return redirect()->route("comics.index"); // reindirizzo l'utente alla index con tutti i comics
     }
+
+    // Ritorna una pagina con un form in cui modificare i dati dell'elemento selezionato
+    public function edit($id)
+    {
+        $data = [
+            "navLinks" => [
+                [
+                    "name" => "characters",
+                ],
+                [
+                    "name" => "comics",
+                ],
+                [
+                    "name" => "movies",
+                ],
+                [
+                    "name" => "tv",
+                ],
+                [
+                    "name" => "games",
+                ],
+                [
+                    "name" => "collectibles",
+                ],
+                [
+                    "name" => "videos",
+                ],
+                [
+                    "name" => "fans",
+                ],
+                [
+                    "name" => "news",
+                ],
+                [
+                    "name" => "shop",
+                ]
+            ],
+            "footerLinks" => [
+                [
+                    "title" => "DC comics",
+                    "subheading" => [
+                        "Characters",
+                        "Comics",
+                        "Movies",
+                        "TV",
+                        "Games",
+                        "Videos",
+                        "News",
+                    ]
+                ],
+                [
+                    "title" => "Shop",
+                    "subheading" => [
+                        "Shop DC",
+                        "Shop DC collectibles",
+                    ]
+                ],
+                [
+                    "title" => "DC",
+                    "subheading" => [
+                        "Terms Of Use",
+                        "Privacy policy (New)",
+                        "Ad Choices",
+                        "Advertising",
+                        "Jobs",
+                        "Subscriptions",
+                        "Talent Workshops",
+                        "CPSC Certificates",
+                        "Ratings",
+                        "Shop Help",
+                        "Contact Us",
+                    ]
+                ],
+                [
+                    "title" => "Sites",
+                    "subheading" => [
+                        "DC",
+                        "MAD Magazine",
+                        "DC Kids",
+                        "DC Universe",
+                        "DC Power Visa",
+                    ]
+                ]
+            ],
+            "comic" => Comic::find($id), // trovo il comic con quello specifico id
+        ];
+
+        return view('comics.edit', $data);
+    }
+
+    // Leggo i dati inviati dal form e modifico nel db i dati dell'elemento e reindirizzo l'utente su un'altra pagina
+    public function update($id, Request $request)
+    {
+        $comic = Comic::findOrFail($id); // cerco nel db l'elemento corrispondente all'id
+
+        // Inseirsco la validazione dei dati (è necessario inserire tutte le colonne che voglio popolare)
+        $data = $request->validate([
+            "title" => "required|string|max:100",
+            "description" => "nullable|string",
+            "thumb" => "required|string|max:600",
+            "price" => "required|numeric|max:9999999.99",
+            "series" => "nullable|string|max:100",
+            "sale_date" => "required|date|after:today",
+            "type" => "nullable|string|max:100",
+            "artists" => "required|string",
+            "writers" => "required|string",
+        ]);
+
+        $data["artists"] = explode(",", $data["artists"]);
+        $data["writers"] = explode(",", $data["writers"]);
+
+        $comic->update($data); // aggiorno l'elemento
+
+        return redirect()->route("comics.show", $comic->id); // reindirizzo l'utente alla pagina dell'elemento che ha modificato
+    }
 }
