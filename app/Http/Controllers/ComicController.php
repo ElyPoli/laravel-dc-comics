@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Comic;
+use App\Http\Requests\UpdateComicsRequest;
 
 class ComicController extends Controller
 {
@@ -318,20 +318,10 @@ class ComicController extends Controller
     }
 
     // Leggo i dati inviati dal form, creo una nuova istanza del model e dopo aver associato i dati li salvo nel db e reindirizzo l'utente su un'altra pagina
-    public function store(Request $request)
+    public function store(UpdateComicsRequest $request)
     {
         // Inseirsco la validazione dei dati (è necessario inserire tutte le colonne che voglio popolare)
-        $data = $request->validate([
-            "title" => "required|string|max:100",
-            "description" => "nullable|string",
-            "thumb" => "required|string|max:600",
-            "price" => "required|numeric|max:9999999.99",
-            "series" => "nullable|string|max:100",
-            "sale_date" => "required|date|after:today",
-            "type" => "nullable|string|max:100",
-            "artists" => "required|string",
-            "writers" => "required|string",
-        ]);
+        $data = $request->validate();
 
         $data["artists"] = explode(",", $data["artists"]);
         $data["writers"] = explode(",", $data["writers"]);
@@ -435,22 +425,12 @@ class ComicController extends Controller
     }
 
     // Leggo i dati inviati dal form e modifico nel db i dati dell'elemento e reindirizzo l'utente su un'altra pagina
-    public function update($id, Request $request)
+    public function update($id, UpdateComicsRequest $request)
     {
         $comic = Comic::findOrFail($id); // cerco nel db l'elemento corrispondente all'id
 
         // Inseirsco la validazione dei dati (è necessario inserire tutte le colonne che voglio popolare)
-        $data = $request->validate([
-            "title" => "required|string|max:100",
-            "description" => "nullable|string",
-            "thumb" => "required|string|max:600",
-            "price" => "required|numeric|max:9999999.99",
-            "series" => "nullable|string|max:100",
-            "sale_date" => "required|date|after:today",
-            "type" => "nullable|string|max:100",
-            "artists" => "required|string",
-            "writers" => "required|string",
-        ]);
+        $data = $request->validate();
 
         $data["artists"] = explode(",", $data["artists"]);
         $data["writers"] = explode(",", $data["writers"]);
