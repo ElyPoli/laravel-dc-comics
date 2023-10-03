@@ -17,14 +17,27 @@
                 @foreach ($comicsList as $comic)
                     <div class="col-6 col-sm-4 col-md-3 col-lg-2">
                         <div class="comics-list pt-3 d-flex justify-content-center">
-                            <a href="{{ route("comics.show", ["comic" => $comic->id]) }}">
+                            <a href="{{ route('comics.show', ['comic' => $comic->id]) }}">
                                 <img src="{{ $comic->thumb }}" alt="{{ $comic->series }}">
                                 <p class="text-white text-uppercase m-0 p-0 pt-2"> {{ $comic->series }} </p>
                             </a>
-                            {{-- Pulsante modifica --}}
-                            <a href="{{ route("comics.edit", ["comic" => $comic->id]) }}">
-                                Edit
-                            </a>
+                            <div class="my-card-btn-box">
+                                {{-- Pulsante modifica --}}
+                                <a href="{{ route('comics.destroy', ['comic' => $comic->id]) }}"
+                                    class="btn my-btn-comics text-uppercase pe-5 ps-5">
+                                    Edit
+                                </a>
+                                {{-- Pulsante elimina --}}
+                                <form action="{{ route('comics.destroy', ['comic' => $comic->id]) }}" method="POST">
+                                    {{-- Token che serve a Laravel per assicurarsi che la chiamata post arrivi da un form del sito  --}}
+                                    @csrf()
+                                    {{-- Specifico il metodo reale da utilizzare --}}
+                                    @method('delete')
+                                    <button class="btn my-btn-comics text-uppercase pe-5 ps-5">
+                                        Delete
+                                    </button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 @endforeach

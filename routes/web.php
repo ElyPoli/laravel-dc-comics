@@ -27,3 +27,6 @@ Route::get("/comics/{comic}", [ComicController::class, "show"])->name("comics.sh
 // UPDATE
 Route::get("/comics/{comic}/edit", [ComicController::class, "edit"])->name("comics.edit"); // ritorna una pagina con form per modificare l'elemento
 Route::put("/comics/{comic}", [ComicController::class, "update"])->name("comics.update"); // leggo i dati e modifico l'elemento nella tabella del db
+
+// DESTROY
+Route::delete("/comics/{comic}", [ComicController::class, "destroy"])->name("comics.destroy"); // elimino l'elemento selezionato

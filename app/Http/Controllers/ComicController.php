@@ -459,4 +459,15 @@ class ComicController extends Controller
 
         return redirect()->route("comics.show", $comic->id); // reindirizzo l'utente alla pagina dell'elemento che ha modificato
     }
+
+    // Elimino l'elemento corrispondente all'id selezionato
+    public function destroy($id)
+    {
+        $comic = Comic::findOrFail($id); // cerco nel db l'elemento corrispondente all'id
+
+        $comic->delete(); // elimino l'elemento
+
+        return redirect()->route("comics.index"); // reindirizzo l'utente alla home
+    }
+
 }

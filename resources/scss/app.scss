@@ -141,6 +141,7 @@ SERIES
 */
 .comics-list {
     cursor: pointer;
+    position: relative;
 
     img {
         height: 135px;
@@ -168,6 +169,12 @@ SERIES
     img {
         filter: brightness(0.6);
     }
+}
+
+.my-card-btn-box {
+    position: absolute;
+    top: 0;
+    left: 50%;
 }
 
 /*
