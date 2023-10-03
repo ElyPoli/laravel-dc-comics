@@ -228,6 +228,9 @@ class ComicsTableSeeder extends Seeder
      */
     public function run(): void
     {
+        // Elimino i dati presenti nella tabella
+        \App\Models\Comic::truncate();
+
         // Recupero i dati da $rawDate
         foreach ($this->rawDate as $singleComic) {
             $comicModel = new Comic(); // Creo una nuova istanza di Comic()
@@ -239,9 +242,9 @@ class ComicsTableSeeder extends Seeder
             $comicModel->series = $singleComic["series"];
             $comicModel->sale_date = $singleComic["sale_date"];
             $comicModel->type = $singleComic["type"];
-            $comicModel->artists = implode(", ", $singleComic["artists"]);
-            $comicModel->writers = implode(", ", $singleComic["writers"]);
-            
+            $comicModel->artists = json_encode($singleComic["artists"]);
+            $comicModel->writers = json_encode($singleComic["writers"]);
+                        
             $comicModel->save(); // Salvo i dati nel database
         }
     }

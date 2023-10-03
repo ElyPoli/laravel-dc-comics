@@ -63,7 +63,7 @@
                             <p>Art by:</p>
                         </div>
                         <div class="col-6">
-                            <span class="my-text-primary"> {{ $comic->artists }} </span>
+                            <span class="my-text-primary"> {{ implode(', ', $comic['artists']) }} </span>
                         </div>
                     </div>
                     <div class="row element-padding-box">
@@ -71,7 +71,7 @@
                             <p>Written by:</p>
                         </div>
                         <div class="col-6">
-                            <span class="my-text-primary"> {{ $comic->writers }} </span>
+                            <span class="my-text-primary"> {{ implode(', ', $comic['writers']) }} </span>
                         </div>
                     </div>
                 </div>
@@ -98,7 +98,7 @@
                             <p class="m-0">On Sale Date:</p>
                         </div>
                         <div class="col-6">
-                            <p class="my-text-primary">{{ date('M d Y', strtotime($comic->sale_date)) }}</p>
+                            <p class="my-text-primary">{{ $comic->sale_date->format('M d Y') }}</p>
                         </div>
                     </div>
                 </div>

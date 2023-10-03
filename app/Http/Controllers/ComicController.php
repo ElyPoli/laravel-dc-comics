@@ -333,6 +333,9 @@ class ComicController extends Controller
             "writers" => "required|string",
         ]);
 
+        $data["artists"] = explode(",", $data["artists"]);
+        $data["writers"] = explode(",", $data["writers"]);
+
         $newComic = new Comic(); // creo una nuova istanza del model
 
         // Salvo i dati immessi con il form
