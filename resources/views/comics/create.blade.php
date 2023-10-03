@@ -12,6 +12,9 @@
                 <form class="w-75 form-add-comic" action="{{ route('comics.store') }}" method="POST">
                     {{-- Token che serve a Laravel per assicurarsi che la chiamata post arrivi da un form del sito  --}}
                     @csrf()
+                    <h3 class="p-0 m-0 fs-4 pt-2 pb-4 text-center fw-bold text-uppercase">
+                        Add New Comic
+                    </h3>
                     <div class="row row-cols-1 gy-3 row-cols-md-2 justify-content-center">
                         <div class="col">
                             <label class="form-label">Title:</label>

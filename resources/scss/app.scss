@@ -163,18 +163,30 @@ SERIES
             text-decoration: none;
         }
     }
-}
 
-.comics-list:hover {
-    img {
-        filter: brightness(0.6);
+    &:hover {
+        .my-btn-edit {
+            opacity: 1;
+            transition: opacity 0.3s;
+        }
+
+        img {
+            filter: brightness(0.6);
+        }
     }
 }
 
 .my-card-btn-box {
-    position: absolute;
-    top: 0;
-    left: 50%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 135px;
+}
+
+.my-btn-edit {
+    border-radius: 5px;
+    font-size: 0.7rem;
+    opacity: 0;
 }
 
 /*

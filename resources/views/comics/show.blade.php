@@ -19,20 +19,22 @@
 
     {{-- Sezione descrizione comic --}}
     <div class="container">
-        {{-- Pulsante modifica --}}
-        <a href="{{ route('comics.edit', $comic->id) }}" class="btn my-btn-comics text-uppercase pe-5 ps-5">
-            Edit
-        </a>
-        {{-- Pulsante elimina --}}
-        <form action="{{ route('comics.destroy', $comic->id) }}" method="POST">
-            {{-- Token che serve a Laravel per assicurarsi che la chiamata post arrivi da un form del sito  --}}
-            @csrf()
-            {{-- Specifico il metodo reale da utilizzare --}}
-            @method('delete')
-            <button class="btn my-btn-comics text-uppercase pe-5 ps-5">
-                Delete
-            </button>
-        </form>
+        <div class="d-flex pb-3">
+            {{-- Pulsante modifica --}}
+            <a href="{{ route('comics.edit', $comic->id) }}" class="btn my-btn-comics me-4">
+                <i class="fa-solid fa-pencil"></i> - Edit
+            </a>
+            {{-- Pulsante elimina --}}
+            <form action="{{ route('comics.destroy', $comic->id) }}" method="POST">
+                {{-- Token che serve a Laravel per assicurarsi che la chiamata post arrivi da un form del sito  --}}
+                @csrf()
+                {{-- Specifico il metodo reale da utilizzare --}}
+                @method('delete')
+                <button class="btn my-btn-comics">
+                    <i class="fa-solid fa-eraser"></i> - Delete
+                </button>
+            </form>
+        </div>
         <div class="row gy-3 justify-content-center">
             <div class="col-12 col-sm-8">
                 <h1 class="text-uppercase fw-bold fs-3 single-comic-title">{{ $comic->title }}</h1>

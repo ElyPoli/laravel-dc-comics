@@ -22,21 +22,23 @@
                                 <p class="text-white text-uppercase m-0 p-0 pt-2"> {{ $comic->series }} </p>
                             </a>
                             <div class="my-card-btn-box">
-                                {{-- Pulsante modifica --}}
-                                <a href="{{ route('comics.destroy', ['comic' => $comic->id]) }}"
-                                    class="btn my-btn-comics text-uppercase pe-5 ps-5">
-                                    Edit
-                                </a>
-                                {{-- Pulsante elimina --}}
-                                <form action="{{ route('comics.destroy', ['comic' => $comic->id]) }}" method="POST">
-                                    {{-- Token che serve a Laravel per assicurarsi che la chiamata post arrivi da un form del sito  --}}
-                                    @csrf()
-                                    {{-- Specifico il metodo reale da utilizzare --}}
-                                    @method('delete')
-                                    <button class="btn my-btn-comics text-uppercase pe-5 ps-5">
-                                        Delete
-                                    </button>
-                                </form>
+                                <div>
+                                    {{-- Pulsante modifica --}}
+                                    <a href="{{ route('comics.edit', ['comic' => $comic->id]) }}"
+                                        class="btn my-btn-comics my-btn-edit mb-2">
+                                        <i class="fa-solid fa-pencil"></i>
+                                    </a>
+                                    {{-- Pulsante elimina --}}
+                                    <form action="{{ route('comics.destroy', ['comic' => $comic->id]) }}" method="POST">
+                                        {{-- Token che serve a Laravel per assicurarsi che la chiamata post arrivi da un form del sito  --}}
+                                        @csrf()
+                                        {{-- Specifico il metodo reale da utilizzare --}}
+                                        @method('delete')
+                                        <button class="btn my-btn-comics my-btn-edit">
+                                            <i class="fa-solid fa-eraser"></i>
+                                        </button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>

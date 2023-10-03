@@ -14,6 +14,12 @@
                     @csrf()
                     {{-- Specifico il metodo reale da utilizzare --}}
                     @method('put')
+                    <h3 class="p-0 m-0 fs-4 pt-2 pb-4 text-center fw-bold">
+                        <span class="text-uppercase">
+                            Edit Comic -
+                        </span>
+                        {{ $comic->title }}
+                    </h3>
                     <div class="row row-cols-1 gy-3 row-cols-md-2 justify-content-center">
                         <div class="col">
                             <label class="form-label">Title:</label>
@@ -93,7 +99,7 @@
                     {{-- Pulsanti --}}
                     <div class="d-flex justify-content-center pt-3">
                         <button type="submit"
-                            class="btn my-btn-comics btn-add-comic text-uppercase pe-5 ps-5 me-2">Add</button>
+                            class="btn my-btn-comics btn-add-comic text-uppercase pe-5 ps-5 me-2">Edit</button>
                         {{-- Reindirizzo l'utente alla index --}}
                         <a href="{{ route('comics.index') }}"
                             class="btn my-btn-comics btn-add-comic text-uppercase pe-5 ps-5 ms-2">Cancel</a>
