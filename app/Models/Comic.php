@@ -9,6 +9,7 @@ class Comic extends Model
 {
     use HasFactory;
 
+    // Creo un array semplice in cui all'interno indico le colonne che voglio popolare
     protected $fillable = [
         "title",
         "description",

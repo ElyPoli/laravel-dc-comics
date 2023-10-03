@@ -7,6 +7,7 @@ use App\Models\Comic;
 
 class ComicController extends Controller
 {
+    // Leggo i dati dalla tabella del db e li passo alla view
     public function index()
     {
         $data = [
@@ -111,12 +112,13 @@ class ComicController extends Controller
                     "srcImg" => "img/buy-dc-power-visa.svg",
                 ]
             ],
-            "comicsList" => Comic::all(),
+            "comicsList" => Comic::all(), // reucupero dalla tabella del db tutti i dati
         ];
 
         return view('comics.index', $data);
     }
 
+    // Dato l'id specificato dall'utente ritorna alla view solo i dati di quello specifico elemento
     public function show($id)
     {
         $data = [
@@ -221,12 +223,13 @@ class ComicController extends Controller
                     "srcImg" => "img/buy-dc-power-visa-2.png",
                 ]
             ],
-            "comic" => Comic::find($id),
+            "comic" => Comic::find($id), // trovo il comic con quello specifico id
         ];
 
         return view('comics.show', $data);
     }
 
+    // Ritorna una pagina in cui ci sarà un form da compilare
     public function create()
     {
         $data = [
@@ -314,9 +317,10 @@ class ComicController extends Controller
         return view("comics.create", $data);
     }
 
+    // Leggo i dati inviati dal form, creo una nuova istanza del model e dopo aver associato i dati li salvo nel db e reindirizzo l'utente su un'altra pagina
     public function store(Request $request)
     {
-        // Inseirsco la validazione dei dati
+        // Inseirsco la validazione dei dati (è necessario inserire tutte le colonne che voglio popolare)
         $data = $request->validate([
             "title" => "required|string|max:100",
             "description" => "nullable|string",
