@@ -15,39 +15,74 @@
                     <div class="row row-cols-1 gy-3 row-cols-md-2 justify-content-center">
                         <div class="col">
                             <label class="form-label">Title:</label>
-                            <input type="text" class="form-control" name="title">
+                            <input type="text" name="title" value="{{ old('title') }}"
+                                class="form-control @error('title') is-invalid @enderror">
+                            @error('title')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="col">
                             <label class="form-label">Description:</label>
-                            <textarea class="form-control" name="description"></textarea>
+                            <textarea name="description" class="form-control @error('description') is-invalid @enderror">{{ old('description') }}</textarea>
+                            @error('description')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="col">
                             <label class="form-label">Thumb:</label>
-                            <input type="text" class="form-control" name="thumb">
+                            <input type="text" name="thumb" value="{{ old('thumb') }}"
+                                class="form-control @error('thumb') is-invalid @enderror">
+                            @error('thumb')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="col">
                             <label class="form-label">Price:</label>
-                            <input type="number" step="0.01" class="form-control" name="price">
+                            <input type="number" step="0.01" name="price" value="{{ old('price') }}"
+                                class="form-control @error('price') is-invalid @enderror">
+                            @error('price')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="col">
                             <label class="form-label">Series:</label>
-                            <input type="text" class="form-control" name="series">
+                            <input type="text" name="series" value="{{ old('series') }}"
+                                class="form-control @error('series') is-invalid @enderror">
+                            @error('series')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="col">
                             <label class="form-label">Date Sales:</label>
-                            <input type="date" class="form-control" name="sale_date">
+                            <input type="date" name="sale_date" value="{{ old('sale_date') }}"
+                                class="form-control @error('sale_date') is-invalid @enderror">
+                            @error('sale_date')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="col">
                             <label class="form-label">Type:</label>
-                            <input type="text" class="form-control" name="type">
+                            <input type="text" name="type" value="{{ old('type') }}"
+                                class="form-control @error('type') is-invalid @enderror">
+                            @error('type')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="col">
                             <label class="form-label">Artists:</label>
-                            <input type="text" class="form-control" name="artists">
+                            <input type="text" name="artists" value="{{ old('artists') }}"
+                                class="form-control @error('artists') is-invalid @enderror">
+                            @error('artists')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="col">
                             <label class="form-label">Writers:</label>
-                            <input type="text" class="form-control" name="writers">
+                            <input type="text" name="writers" value="{{ old('writers') }}"
+                                class="form-control @error('writers') is-invalid @enderror">
+                            @error('writers')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
                     </div>
 
