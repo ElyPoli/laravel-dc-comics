@@ -321,7 +321,7 @@ class ComicController extends Controller
     public function store(UpdateComicsRequest $request)
     {
         // Inseirsco la validazione dei dati (è necessario inserire tutte le colonne che voglio popolare)
-        $data = $request->validate();
+        $data = $request->validated();
 
         $data["artists"] = explode(",", $data["artists"]);
         $data["writers"] = explode(",", $data["writers"]);
@@ -430,7 +430,7 @@ class ComicController extends Controller
         $comic = Comic::findOrFail($id); // cerco nel db l'elemento corrispondente all'id
 
         // Inseirsco la validazione dei dati (è necessario inserire tutte le colonne che voglio popolare)
-        $data = $request->validate();
+        $data = $request->validated();
 
         $data["artists"] = explode(",", $data["artists"]);
         $data["writers"] = explode(",", $data["writers"]);
