@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UpdateMoviesRequest;
 use App\Models\Movie;
+use Illuminate\Support\Facades\Config;
 
 class MovieController extends Controller
 {
@@ -11,107 +12,9 @@ class MovieController extends Controller
     public function index()
     {
         $data = [
-            "navLinks" => [
-                [
-                    "name" => "characters",
-                ],
-                [
-                    "name" => "comics",
-                ],
-                [
-                    "name" => "movies",
-                ],
-                [
-                    "name" => "tv",
-                ],
-                [
-                    "name" => "games",
-                ],
-                [
-                    "name" => "collectibles",
-                ],
-                [
-                    "name" => "videos",
-                ],
-                [
-                    "name" => "fans",
-                ],
-                [
-                    "name" => "news",
-                ],
-                [
-                    "name" => "shop",
-                ]
-            ],
-            "footerLinks" => [
-                [
-                    "title" => "DC comics",
-                    "subheading" => [
-                        "Characters",
-                        "Comics",
-                        "Movies",
-                        "TV",
-                        "Games",
-                        "Videos",
-                        "News",
-                    ]
-                ],
-                [
-                    "title" => "Shop",
-                    "subheading" => [
-                        "Shop DC",
-                        "Shop DC collectibles",
-                    ]
-                ],
-                [
-                    "title" => "DC",
-                    "subheading" => [
-                        "Terms Of Use",
-                        "Privacy policy (New)",
-                        "Ad Choices",
-                        "Advertising",
-                        "Jobs",
-                        "Subscriptions",
-                        "Talent Workshops",
-                        "CPSC Certificates",
-                        "Ratings",
-                        "Shop Help",
-                        "Contact Us",
-                    ]
-                ],
-                [
-                    "title" => "Sites",
-                    "subheading" => [
-                        "DC",
-                        "MAD Magazine",
-                        "DC Kids",
-                        "DC Universe",
-                        "DC Power Visa",
-                    ]
-                ]
-            ],
-            "bannerLinks" => [
-                [
-                    "name" => "digital comics",
-                    "srcImg" => "img/buy-comics-digital-comics.png",
-                ],
-                [
-                    "name" => "dc merchandise",
-                    "srcImg" => "img/buy-comics-merchandise.png",
-                ],
-                [
-                    "name" => "subscriptions",
-                    "srcImg" => "img/buy-comics-subscriptions.png",
-                ],
-                [
-                    "name" => "comic shop locator",
-                    "srcImg" => "img/buy-comics-shop-locator.png",
-                ],
-                [
-                    "name" => "dc power visa",
-                    "srcImg" => "img/buy-dc-power-visa.svg",
-                ]
-            ],
+            "navLinks" => Config::get('commonData.navLinks'), // recupero i dati per la nav
+            "footerLinks" => Config::get('commonData.footerLinks'), // recupero i dati per il footer
+            "bannerLinks" => Config::get('commonData.bannerLinks'), // recupero i dati per le card
             "moviesList" => Movie::all(), // prendo dalla tabella del db tutti i dati presenti
         ];
 
@@ -122,85 +25,7 @@ class MovieController extends Controller
     public function show($id)
     {
         $data = [
-            "navLinks" => [
-                [
-                    "name" => "characters",
-                ],
-                [
-                    "name" => "comics",
-                ],
-                [
-                    "name" => "movies",
-                ],
-                [
-                    "name" => "tv",
-                ],
-                [
-                    "name" => "games",
-                ],
-                [
-                    "name" => "collectibles",
-                ],
-                [
-                    "name" => "videos",
-                ],
-                [
-                    "name" => "fans",
-                ],
-                [
-                    "name" => "news",
-                ],
-                [
-                    "name" => "shop",
-                ]
-            ],
-            "footerLinks" => [
-                [
-                    "title" => "DC comics",
-                    "subheading" => [
-                        "Characters",
-                        "Comics",
-                        "Movies",
-                        "TV",
-                        "Games",
-                        "Videos",
-                        "News",
-                    ]
-                ],
-                [
-                    "title" => "Shop",
-                    "subheading" => [
-                        "Shop DC",
-                        "Shop DC collectibles",
-                    ]
-                ],
-                [
-                    "title" => "DC",
-                    "subheading" => [
-                        "Terms Of Use",
-                        "Privacy policy (New)",
-                        "Ad Choices",
-                        "Advertising",
-                        "Jobs",
-                        "Subscriptions",
-                        "Talent Workshops",
-                        "CPSC Certificates",
-                        "Ratings",
-                        "Shop Help",
-                        "Contact Us",
-                    ]
-                ],
-                [
-                    "title" => "Sites",
-                    "subheading" => [
-                        "DC",
-                        "MAD Magazine",
-                        "DC Kids",
-                        "DC Universe",
-                        "DC Power Visa",
-                    ]
-                ]
-            ],
+            // Riscrivo i dati modificati per le card del banner
             "bannerLinks" => [
                 [
                     "name" => "digital comics",
@@ -223,6 +48,8 @@ class MovieController extends Controller
                     "srcImg" => "img/buy-dc-power-visa-2.png",
                 ]
             ],
+            "navLinks" => Config::get('commonData.navLinks'), // recupero i dati per la nav
+            "footerLinks" => Config::get('commonData.footerLinks'), // recupero i dati per il footer
             "movie" => Movie::find($id), // individuo il film associato all'id selezionato dall'utente
         ];
 
@@ -233,85 +60,8 @@ class MovieController extends Controller
     public function create()
     {
         $data = [
-            "navLinks" => [
-                [
-                    "name" => "characters",
-                ],
-                [
-                    "name" => "comics",
-                ],
-                [
-                    "name" => "movies",
-                ],
-                [
-                    "name" => "tv",
-                ],
-                [
-                    "name" => "games",
-                ],
-                [
-                    "name" => "collectibles",
-                ],
-                [
-                    "name" => "videos",
-                ],
-                [
-                    "name" => "fans",
-                ],
-                [
-                    "name" => "news",
-                ],
-                [
-                    "name" => "shop",
-                ]
-            ],
-            "footerLinks" => [
-                [
-                    "title" => "DC comics",
-                    "subheading" => [
-                        "Characters",
-                        "Comics",
-                        "Movies",
-                        "TV",
-                        "Games",
-                        "Videos",
-                        "News",
-                    ]
-                ],
-                [
-                    "title" => "Shop",
-                    "subheading" => [
-                        "Shop DC",
-                        "Shop DC collectibles",
-                    ]
-                ],
-                [
-                    "title" => "DC",
-                    "subheading" => [
-                        "Terms Of Use",
-                        "Privacy policy (New)",
-                        "Ad Choices",
-                        "Advertising",
-                        "Jobs",
-                        "Subscriptions",
-                        "Talent Workshops",
-                        "CPSC Certificates",
-                        "Ratings",
-                        "Shop Help",
-                        "Contact Us",
-                    ]
-                ],
-                [
-                    "title" => "Sites",
-                    "subheading" => [
-                        "DC",
-                        "MAD Magazine",
-                        "DC Kids",
-                        "DC Universe",
-                        "DC Power Visa",
-                    ]
-                ]
-            ]
+            "navLinks" => Config::get('commonData.navLinks'), // recupero i dati per la nav
+            "footerLinks" => Config::get('commonData.footerLinks'), // recupero i dati per il footer
         ];
 
         return view("movies.create", $data);
@@ -339,85 +89,8 @@ class MovieController extends Controller
     public function edit($id)
     {
         $data = [
-            "navLinks" => [
-                [
-                    "name" => "characters",
-                ],
-                [
-                    "name" => "comics",
-                ],
-                [
-                    "name" => "movies",
-                ],
-                [
-                    "name" => "tv",
-                ],
-                [
-                    "name" => "games",
-                ],
-                [
-                    "name" => "collectibles",
-                ],
-                [
-                    "name" => "videos",
-                ],
-                [
-                    "name" => "fans",
-                ],
-                [
-                    "name" => "news",
-                ],
-                [
-                    "name" => "shop",
-                ]
-            ],
-            "footerLinks" => [
-                [
-                    "title" => "DC comics",
-                    "subheading" => [
-                        "Characters",
-                        "Comics",
-                        "Movies",
-                        "TV",
-                        "Games",
-                        "Videos",
-                        "News",
-                    ]
-                ],
-                [
-                    "title" => "Shop",
-                    "subheading" => [
-                        "Shop DC",
-                        "Shop DC collectibles",
-                    ]
-                ],
-                [
-                    "title" => "DC",
-                    "subheading" => [
-                        "Terms Of Use",
-                        "Privacy policy (New)",
-                        "Ad Choices",
-                        "Advertising",
-                        "Jobs",
-                        "Subscriptions",
-                        "Talent Workshops",
-                        "CPSC Certificates",
-                        "Ratings",
-                        "Shop Help",
-                        "Contact Us",
-                    ]
-                ],
-                [
-                    "title" => "Sites",
-                    "subheading" => [
-                        "DC",
-                        "MAD Magazine",
-                        "DC Kids",
-                        "DC Universe",
-                        "DC Power Visa",
-                    ]
-                ]
-            ],
+            "navLinks" => Config::get('commonData.navLinks'), // recupero i dati per la nav
+            "footerLinks" => Config::get('commonData.footerLinks'), // recupero i dati per il footer
             "movie" => Movie::find($id), // trovo il film con l'id corrispondente
         ];
 
